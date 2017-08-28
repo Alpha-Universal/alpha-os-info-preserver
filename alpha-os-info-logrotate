@@ -1,0 +1,18 @@
+/var/log/alpha/alpha-os-info-preserver.log {
+   
+    weekly
+    rotate 3
+    compress
+    nocopytruncate
+    # don't compress the first rotated log
+    delaycompress
+    # move to next log without issuing an error
+    missingok
+    # don't rotate if the log is empty
+    notifempty
+    # mail errors to root
+    errors root
+
+    # create all logs and .gzs as root
+    create 640 root root
+}
