@@ -1,0 +1,30 @@
+### md5sums ###
+
+776d38ceff6bc454eec02cee4e935de2  alpha-os-info-logrotate
+cbaa1372f8070578f56515bb73071065  alpha-os-info-preserver.sh
+08f4a801033b4a517f94c27d55b21d54  alpha-os-info-preserver_1.0-1_all.deb
+2944738ca14d08622c658c01945ada16  os-release
+
+
+### sha1sums ###
+
+ea8a0b24e098bdb7381103704da413baae3ce7ea  alpha-os-info-logrotate
+c3c8a2563e6a6c2a875a1e5ac29603292e1a927d  alpha-os-info-preserver.sh
+862d2838c745b37cf17ded0dcb55384f9507c790  alpha-os-info-preserver_1.0-1_all.deb
+72790cb1b5f9d4b26a794467ac6991c0c225de2d  os-release
+
+
+### sha256sums ###
+
+0a04a9fee4598ecbf8126ad074fc40ae4233dbfd90893f771e2165d1d7d1066f  alpha-os-info-logrotate
+f10cf424aa7e8dc1157018e91db0d135fd25ba240f09a34ca327171cd6fff1e2  alpha-os-info-preserver.sh
+019fdf7c624ded16c2f813244b75506bd0a8d4b858167fe865fdb49a3997f174  alpha-os-info-preserver_1.0-1_all.deb
+93d896c0c3547f8be33569680dc2dd74751bc1bbad1c9cd3f7f084125d336c09  os-release
+
+
+### sha512sums ###
+
+750c8df46c177031afccacbd9537b16dd2ed9ba4d3849ab6be5ccc39ec6ce2c7e8803049b6ceaad6e0e213b2d36e047ce8e5ce1719ff5bdfbb2594c4d82d7b53  alpha-os-info-logrotate
+3d45d528dc6622f73c7c6c6037a9df406244c4ecae94e2244ab2e8207da4672fcf4373c8688ade01ece597fae2817bd41dd9abea99a679c7e2e33c3769403df4  alpha-os-info-preserver.sh
+0368afece0702ccd8477a84389be935dfa1707afe6b23273651728a183a64f3e602ea93f6c8e741f42cbc870638f71f3255e8886d00925f996a13a8e4a98c3bc  alpha-os-info-preserver_1.0-1_all.deb
+069020a1cbf079134922264c039052431eb8196c8ab2a46d1ed2ed6b77fce3a44b9bf3e61f8c6b90a6d3ccafed8d9c96798f002cdc13935e500815ed08a29b22  os-release
