@@ -1,0 +1,12 @@
+[Unit]
+Description=Activate alpha-os-info-preserver.sh on startup
+
+[Service]
+Type=forking
+ExecStart=/etc/alpha-scripts/system/scripts/alpha-os-info-preserver.sh
+StandardOutput=null
+StandardError=journal
+
+[Install]
+WantedBy=default.target
+Alias=alpha-os-info-preserver.service

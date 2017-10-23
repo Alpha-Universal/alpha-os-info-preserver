@@ -1,0 +1,3 @@
+alpha-os-info-preserver.sh /etc/alpha-scripts/system/scripts
+os-release /etc/alpha-scripts/system/templates/alpha-os-info-preserver
+alpha-os-info-logrotate /etc/logrotate.d

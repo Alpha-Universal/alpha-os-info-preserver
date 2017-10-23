@@ -1,0 +1,7 @@
+alpha-os-info-preserver (1.0-1) experimental; urgency=low
+
+  * Initial release 
+  * Added alpha-os-info-preserver.sh, alpha-os-info-preserver.service
+  * os-release file, and alpha-os-info-logrotate.
+
+ -- Richard Buchanan II <richard@alpha.store>  Wed, 16 Aug 2017 19:03:56 -0500

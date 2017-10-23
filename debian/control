@@ -1,0 +1,19 @@
+Source: alpha-os-info-preserver
+Section: admin
+Priority: optional
+Maintainer: Richard Buchanan II <richard@alpha.store>
+Build-Depends: debhelper (>= 9), dh-systemd (>= 1.5)
+Standards-Version: 3.9.8
+Homepage: https://github.com/Alpha-Universal/alpha-os-info-preserver
+
+Package: alpha-os-info-preserver
+Architecture: all
+Depends: ${misc:Depends}
+Description: This package includes a script to preserve
+ Alpha OS system info and links within Pantheon's 
+ Switchboard > About section.  
+ .
+ Without this package, Switchboard upgrades will return all 
+ info and links in the About section to those initially 
+ set by the elementary OS team, which will place an undue
+ support burden on them.
