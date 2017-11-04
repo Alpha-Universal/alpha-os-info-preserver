@@ -18,8 +18,8 @@ set -o nounset      # exits if unset vars are present
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 
 # installs needed programs
-if [[ ! -x /usr/bin/inotifywait ]] ; then
-	apt update && apt install -y inotify-tools
+if [[ ! -x /usr/bin/inotify-hookable ]] ; then
+	apt update && apt install -y inotify-hookable
 fi
 
 # creates an Alpha log directory, if not already present
@@ -30,36 +30,11 @@ fi
 # define pertinent files
 aos_osr_file="/etc/alpha-scripts/system/templates/alpha-os-info-preserver/os-release"
 usr_osr_file="/usr/lib/os-release"
+aos_log_file="/var/log/alpha/alpha-os-info-preserver.log"
 
-# create needed checksums for all os-release files 
-aos_sha="$(sha256sum ${aos_osr_file} | awk '{print $1 }')"
-		
-# compares both checksums and searches for a failure result
-# true is used because sha256sum exits with failure on checksum mismatches,
-# which bombs this script
-sha_comp="$(echo "${aos_sha}  ${usr_osr_file}" | sha256sum -c - || true)"
-		
-# define the comparison result
-sha_result=0
-if [[ -n "$(echo "${sha_comp}" | grep FAILED)" ]] ; then
-	sha_result=1
-fi
-
-# sets inotify to monitor both os-release files in the background
-while inotifywait --daemon --outfile /var/log/alpha/alpha-os-info-preserver.log \
-	--event modify,create,attrib --timefmt "%F - %R:%S" --format "%w %e @ %T" /usr/lib/os-release ; do
-		# exits if no differences were found
-		# exit is called here because inotifywait will otherwise keep 
-		# spawning processes
-		if [[ "${sha_result}" == 0 ]] ; then
-			echo "No os-release differences found. Exiting"
-			exit 0
-		else
-		# restores Alpha OS file after modifications were made to system defaults
-			echo "The os-release files differ. Installing replacement in /usr/lib"
-			cp "${aos_osr_file}" "${usr_osr_file}" 
-			exit 0
-		fi
-	done
-	
-exit 0
+# sets inotify-hookable to monitor /usr/lib/os-release in the background
+# the & is required at the end, or i-h will time out on systemd
+while true ; do
+    inotify-hookable -f /usr/lib/os-release -c cp "${aos_osr_file} ${usr_osr_file}"
+	echo "$(date +%F) at $(date +%H:%M:%S) - os-release was modified" >> "${aos_log_file}"
+done &
