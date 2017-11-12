@@ -35,6 +35,6 @@ aos_log_file="/var/log/alpha/alpha-os-info-preserver.log"
 # sets inotify-hookable to monitor /usr/lib/os-release in the background
 # the & is required at the end, or i-h will time out on systemd
 while true ; do
-    inotify-hookable -f /usr/lib/os-release -c cp "${aos_osr_file} ${usr_osr_file}"
+    inotify-hookable -f /usr/lib/os-release -c "cp ${aos_osr_file} ${usr_osr_file}"
 	echo "$(date +%F) at $(date +%H:%M:%S) - os-release was modified" >> "${aos_log_file}"
 done &
